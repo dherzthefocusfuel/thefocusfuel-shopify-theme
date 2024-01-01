@@ -346,6 +346,8 @@ a.product__text {
 
 .product__title > * {
   margin: 0;
+  font-family: "Rhino85";
+  color: rgb(var(--color-background));
 }
 
 .product__title > a {
@@ -1199,6 +1201,10 @@ a.product__text {
   overflow: hidden !important;
 }
 
+.product__media {
+  background-color: transparent !important;
+}
+
 .thumbnail[aria-current]:focus-visible {
   box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0rem 0.5rem rgba(var(--color-foreground), 0.5);
 }
@@ -1398,6 +1404,7 @@ a.product__text {
   position: relative;
   width: 100%;
   max-width: calc(100% - calc(var(--media-border-width) * 2));
+  background-color: transparent !important;
 }
 
 .product-media-container.constrain-height {

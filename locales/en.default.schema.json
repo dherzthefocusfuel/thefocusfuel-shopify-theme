@@ -519,7 +519,7 @@
       }
     },
     "collage": {
-      "name": "Collage",
+      "name": "Silly collage c",
       "settings": {
         "heading": {
           "label": "Heading"
@@ -536,7 +536,7 @@
         "mobile_layout": {
           "label": "Mobile layout",
           "options__1": {
-            "label": "Collage"
+            "label": "Silly collage ml"
           },
           "options__2": {
             "label": "Column"
@@ -603,7 +603,7 @@
         }
       },
       "presets": {
-        "name": "Collage"
+        "name": "Silly collage pre"
       }
     },
     "collection-list": {
@@ -1703,7 +1703,7 @@
             "label": "Grid"
           },
           "options__2": {
-            "label": "Collage"
+            "label": "Silly collage o2"
           },
           "info": "Posts are stacked on mobile."
         },

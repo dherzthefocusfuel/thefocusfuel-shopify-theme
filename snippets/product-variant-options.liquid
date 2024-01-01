@@ -44,37 +44,36 @@
       endcase
     endfor
   -%}
-
-  {%- if block.settings.picker_type == 'button' -%}
-    <input
-      type="radio"
-      id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-      name="{{ option.name }}"
-      value="{{ value | escape }}"
-      form="{{ product_form_id }}"
-      {% if option.selected_value == value %}
-        checked
-      {% endif %}
-      {% if option_disabled %}
-        class="disabled"
-      {% endif %}
+  <style>
+    .ffhideinput {
+      display: none;
+    }
+  </style>
+  <input
+    type="radio"
+    id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+    name="{{ option.name }}"
+    value="{{ value | escape }}"
+    form="{{ product_form_id }}"
+    class="ffhideinput"
+    {% if option.selected_value == value %}
+      checked
+    {% endif %}
+    {% if option_disabled %}
+      class="disabled"
+    {% endif %}
+  >
+  {% comment %}
+    NOTE FROM CAM: to add new products / variants, upload the new icon as a file in the assets folder
+    make sure the name is the product variant name
+  {% endcomment %}
+  <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+    <span class="visually-hidden">{{ 'products.product.variant_sold_out_or_unavailable' | t }}</span>
+    <img
+      width="48"
+      height="48"
+      loading="eager"
+      src="{{ value | downcase | replace: ' ', '_' | append: '.png' | file_url }}"
     >
-    <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-      {{ value -}}
-      <span class="visually-hidden">{{ 'products.product.variant_sold_out_or_unavailable' | t }}</span>
-    </label>
-  {%- elsif block.settings.picker_type == 'dropdown' -%}
-    <option
-      value="{{ value | escape }}"
-      {% if option.selected_value == value %}
-        selected="selected"
-      {% endif %}
-    >
-      {% if option_disabled -%}
-        {{- 'products.product.value_unavailable' | t: option_value: value -}}
-      {%- else -%}
-        {{- value -}}
-      {%- endif %}
-    </option>
-  {%- endif -%}
+  </label>
 {%- endfor -%}

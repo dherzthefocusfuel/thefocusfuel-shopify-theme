@@ -1,0 +1,299 @@
+{{ 'section-multicolumn.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .ffingsection {
+    background-color: #FFFFFF;
+    padding-top: 96px;
+    padding-bottom: 96px;
+    color: #1F326A;
+  }
+
+  .ffingcard {
+    background-color: #F5F5F7;
+    padding: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    width: 160px;
+    height: 220px;
+    border-radius: 12px;
+    font-family: "Rhino55";
+    gap: 2px;
+  }
+
+  .ffingh {
+    color: #1F326A;
+    font-family: "Rhino85";
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .ffingblend {
+    color: #FFFFFF;
+    font-family: "Rogue";
+    font-size: 10px;
+    height: 16px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .ffinggrid {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1100px;
+    gap: 12px;
+  }
+
+  .ffingname {
+    overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+    width: 100%;
+  }
+
+  .ffingdesc {
+    font-size: 10px;
+    line-height: 12px;
+  }
+{%- endstyle -%}
+
+{% comment %}
+  <script
+    async
+    src="https://cdnjs.cloudflare.com/ajax/libs/textfit/2.1.0/textFit.min.js"
+    integrity="sha512-Uyn3ACMPruX6bWtp4wqxwdFAc2wBeFCv8gauaFV3xA6NnDyJwjEUXk4hHMmRQZayEaI/DTRbl5H3PIjyU+LOig=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script>
+    $(document).ready(function () {
+      textFit(document.getElementsByClassName('ffingname'));
+    });
+  </script>
+{% endcomment %}
+
+<div class="ffingsection">
+  <h2 class="ffingh">
+    {{ section.settings.header }}
+  </h2>
+  <div class="ffinggrid">
+    {%- for block in section.blocks -%}
+      <div class="ffingcard">
+        {{ block.settings.image | img_url: 'master' | img_tag: block.settings.name }}
+        <div class="ffingname">
+          {{ block.settings.name }}
+        </div>
+        <div
+          class="ffingblend"
+          style="
+            {% case block.settings.blend %}
+            {% when 'focus' %}
+              background-color: #1F326A;
+            {% when 'energy' %}
+              background-color: #FFCF01;
+            {% when 'electrolyte' %}
+              background-color: #00C2F3;
+            {% endcase %}
+          "
+        >
+          {{ block.settings.blend }}
+        </div>
+        <div class="ffingdesc">
+          {{ block.settings.desc }}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ingredients",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "header",
+      "default": "Powerful, clean, and safe ingredients",
+      "label": "Header"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "name",
+          "default": "Name",
+          "label": "Name"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "desc",
+          "default": "Description goes here",
+          "label": "Description"
+        },
+        {
+          "type": "select",
+          "id": "blend",
+          "label": "Blend",
+          "options": [
+            {
+              "value": "focus",
+              "label": "Focus"
+            },
+            {
+              "value": "energy",
+              "label": "Energy"
+            },
+            {
+              "value": "electrolyte",
+              "label": "Electrolyte"
+            }
+          ],
+          "default": "focus"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/electric_watermelon.png",
+            "name": "Sodium",
+            "blend": "electrolyte",
+            "desc": "Essential for nerve function and fluid balance"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/electric_watermelon.png",
+            "name": "Potassium",
+            "blend": "electrolyte",
+            "desc": "Crucial for heart function and muscle contractions"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/electric_watermelon.png",
+            "name": "Magnesium",
+            "blend": "electrolyte",
+            "desc": "Electrolyte for better energy"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/electric_watermelon.png",
+            "name": "Watermelon Juice Powder",
+            "blend": "eletrolyte",
+            "desc": "Rich in antioxidants and amino acids"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/electric_watermelon.png",
+            "name": "Alpha GPC",
+            "blend": "energy",
+            "desc": "Aids in memory and learning, boosts neurotransmitter health"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/electric_watermelon.png",
+            "name": "Lionsmane",
+            "blend": "focus",
+            "desc": "Supports brain health, enhances focus and concentration"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/electric_watermelon.png",
+            "name": "Ashwagandha",
+            "blend": "focus",
+            "desc": "Reduces stress and anxiety, improves focus and stamina"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/electric_watermelon.png",
+            "name": "Natural Caffeine",
+            "blend": "energy",
+            "desc": "Offers a steady energy lift without the jitters"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/electric_watermelon.png",
+            "name": "L-Theanine",
+            "blend": "energy",
+            "desc": "Promotes calmness, mitigating the edginess of caffeine"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/electric_watermelon.png",
+            "name": "Bioprene",
+            "blend": "energy",
+            "desc": "Enhances absorption of nutrients and compounds"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/electric_watermelon.png",
+            "name": "Vitamin B12",
+            "blend": "energy",
+            "desc": "Essential for energy production at the cellular level"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

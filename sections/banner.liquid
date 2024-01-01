@@ -1,0 +1,272 @@
+{%- style -%}
+  :root {
+    --ff-banner-offset: -2000px;
+  }
+  /* Photo Banner */
+  .ffcontainer {
+    width: 100%;
+    overflow: hidden;
+    background: #ffcf01;
+    color: #f05b71;
+    font-family: 'Dreamer';
+    font-size: 24px;
+    border-top: 2px dashed #f05b71;
+    border-bottom: 2px dashed #f05b71;
+  }
+
+  .photobanner {
+    height: 48px;
+    width: 9000px;
+  }
+
+  .ffblock {
+    margin-left: 20px;
+    display: inline-block;
+    align-items: center;
+  }
+
+  .fftextflex {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .photobanner div {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+
+  /*keyframe animations*/
+  .ffleft {
+    -webkit-animation: bannermove 30s linear infinite;
+    -moz-animation: bannermove 30s linear infinite;
+    -ms-animation: bannermove 30s linear infinite;
+    -o-animation: bannermove 30s linear infinite;
+    animation: bannermove 30s linear infinite;
+  }
+
+  @keyframes "bannermove" {
+    0% {
+      margin-left: 0px;
+    }
+    100% {
+      margin-left: var(--ff-banner-offset);
+    }
+  }
+
+  @-moz-keyframes bannermove {
+    0% {
+      margin-left: 0px;
+    }
+    100% {
+      margin-left: var(--ff-banner-offset);
+    }
+  }
+
+  @-webkit-keyframes "bannermove" {
+    0% {
+      margin-left: 0px;
+    }
+    100% {
+      margin-left: var(--ff-banner-offset);
+    }
+  }
+
+  @-ms-keyframes "bannermove" {
+    0% {
+      margin-left: 0px;
+    }
+    100% {
+      margin-left: var(--ff-banner-offset);
+    }
+  }
+
+  @-o-keyframes "bannermove" {
+    0% {
+      margin-left: 0px;
+    }
+    100% {
+      margin-left: var(--ff-banner-offset);
+    }
+  }
+
+  .ffright {
+    -webkit-animation: bannermoves 30s linear infinite;
+    -moz-animation: bannermoves 30s linear infinite;
+    -ms-animation: bannermoves 30s linear infinite;
+    -o-animation: bannermoves 30s linear infinite;
+    animation: bannermoves 30s linear infinite;
+  }
+
+  @keyframes "bannermoves" {
+    0% {
+      margin-left: var(--ff-banner-offset);
+    }
+    100% {
+      margin-left: 0px;
+    }
+  }
+
+  @-moz-keyframes bannermoves {
+    0% {
+      margin-left: var(--ff-banner-offset);
+    }
+    100% {
+      margin-left: 0px;
+    }
+  }
+
+  @-webkit-keyframes "bannermoves" {
+    0% {
+      margin-left: var(--ff-banner-offset);
+    }
+    100% {
+      margin-left: 0px;
+    }
+  }
+
+  @-ms-keyframes "bannermoves" {
+    0% {
+      margin-left: var(--ff-banner-offset);
+    }
+    100% {
+      margin-left: 0px;
+    }
+  }
+
+  @-o-keyframes "bannermoves" {
+    0% {
+      margin-left: var(--ff-banner-offset);
+    }
+    100% {
+      margin-left: 0px;
+    }
+  }
+
+  .ffflexins {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
+{%- endstyle -%}
+
+<div class="ffcontainer">
+  <div class="photobanner">
+    {% for block in section.blocks %}
+      <div class="ffblock {% if section.settings.direction == 'left' and forloop.first %}ffleft{% elsif forloop.first and section.settings.direction == 'right' %}ffright{% endif %}">
+        <div class="ffflexins">
+          <div class="fftextflex">
+            {{ block.settings['banner-item-text'] }}
+          </div>
+          <svg width="21" height="32" viewBox="0 0 21 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.1529 19.6893C15.916 32.3177 13.5166 32.7256 12.6715 31.5851C11.5774 30.1198 12.928 21.298 11.5246 19.863C10.1137 18.4204 4.89237 23.1107 2.99097 21.9023C1.09711 20.6938 0.357678 10.2934 1.58001 5.33118C2.26662 2.51394 10.3325 -0.77913 11.2455 0.164984C12.747 1.68312 7.90292 10.5653 9.41197 12.4309C10.2344 13.4354 16.3611 9.90069 17.5985 9.56836C18.836 9.22848 22.3822 7.0759 19.1453 19.6968L19.1529 19.6893Z" fill="#F05B71"/>
+          </svg>
+        </div>
+      </div>
+    {% endfor %}
+    {% for i in (1..5) %}
+      {% for block in section.blocks %}
+        <div class="ffblock">
+          <div class="ffflexins">
+            <div class="fftextflex">
+              {{ block.settings['banner-item-text'] }}
+            </div>
+            <svg width="21" height="32" viewBox="0 0 21 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.1529 19.6893C15.916 32.3177 13.5166 32.7256 12.6715 31.5851C11.5774 30.1198 12.928 21.298 11.5246 19.863C10.1137 18.4204 4.89237 23.1107 2.99097 21.9023C1.09711 20.6938 0.357678 10.2934 1.58001 5.33118C2.26662 2.51394 10.3325 -0.77913 11.2455 0.164984C12.747 1.68312 7.90292 10.5653 9.41197 12.4309C10.2344 13.4354 16.3611 9.90069 17.5985 9.56836C18.836 9.22848 22.3822 7.0759 19.1453 19.6968L19.1529 19.6893Z" fill="#F05B71"/>
+            </svg>
+          </div>
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+
+{% comment %}
+  <svg width="21" height="32" viewBox="0 0 21 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19.1529 19.6893C15.916 32.3177 13.5166 32.7256 12.6715 31.5851C11.5774 30.1198 12.928 21.298 11.5246 19.863C10.1137 18.4204 4.89237 23.1107 2.99097 21.9023C1.09711 20.6938 0.357678 10.2934 1.58001 5.33118C2.26662 2.51394 10.3325 -0.77913 11.2455 0.164984C12.747 1.68312 7.90292 10.5653 9.41197 12.4309C10.2344 13.4354 16.3611 9.90069 17.5985 9.56836C18.836 9.22848 22.3822 7.0759 19.1453 19.6968L19.1529 19.6893Z" fill="#F05B71"/>
+  </svg>
+{% endcomment %}
+
+{% schema %}
+{
+  "name": "Banner",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "Direction",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Left"
+        }
+      ],
+      "default": "left"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "banner-item-text",
+      "name": "Banner item",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "banner-item-text",
+          "default": "Text",
+          "label": "Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner",
+      "blocks": [
+        {
+          "type": "banner-item-text",
+          "settings": {
+            "banner-item-text": "on-the-go energy"
+          }
+        },
+        {
+          "type": "banner-item-text",
+          "settings": {
+            "banner-item-text": "easy energy"
+          }
+        },
+        {
+          "type": "banner-item-text",
+          "settings": {
+            "banner-item-text": "fun energy"
+          }
+        },
+        {
+          "type": "banner-item-text",
+          "settings": {
+            "banner-item-text": "clean energy"
+          }
+        },
+        {
+          "type": "banner-item-text",
+          "settings": {
+            "banner-item-text": "fast energy"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

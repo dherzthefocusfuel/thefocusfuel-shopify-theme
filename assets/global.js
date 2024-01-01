@@ -975,6 +975,24 @@ class VariantSelects extends HTMLElement {
       this.updateVariantInput();
       this.renderProductInfo();
       this.updateShareUrl();
+      this.updateSelectedValue();
+    }
+  }
+
+  updateSelectedValue() {
+    const valueOption1 = this.currentVariant.option1;
+    if (valueOption1 != null) {
+      document.getElementById("selected-value-1").innerHTML = valueOption1;
+    }
+
+    const valueOption2 = this.currentVariant.option2;
+    if (valueOption2 != null) {
+      document.getElementById("selected-value-2").innerHTML = valueOption2;
+    }
+    
+    const valueOption3 = this.currentVariant.option3;
+    if (valueOption3 != null) {
+      document.getElementById("selected-value-3").innerHTML = valueOption3;
     }
   }
 

@@ -2358,7 +2358,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
 .header-wrapper {
   display: block;
   position: relative;
-  background-color: rgb(var(--color-background));
+  background-color: transparent !important;
 }
 
 .header-wrapper--border-bottom {
@@ -2940,6 +2940,14 @@ details-disclosure > details {
   background-attachment: fixed;
 }
 
+.fftextlight {
+  color: rgb(var(--color-foreground));
+}
+
+.fftextlight {
+  color: rgb(var(--color-foreground));
+}
+
 @media screen and (forced-colors: active) {
   .icon {
     color: CanvasText;
@@ -3095,6 +3103,26 @@ details-disclosure > details {
 
 .font-body-bold {
   font-weight: var(--font-body-weight-bold);
+}
+
+@font-face {
+  font-family: Rogue;
+  src: url("https://cdn.shopify.com/s/files/1/0851/3834/2187/files/Focus_Fuel_Rogue.woff2?v=1702870607");
+}
+
+@font-face {
+  font-family: Dreamer;
+  src: url("https://cdn.shopify.com/s/files/1/0851/3834/2187/files/Focus_Fuel_Dreamer.woff2?v=1702870607");
+}
+
+@font-face {
+  font-family: Rhino55;
+  src: url("https://cdn.shopify.com/s/files/1/0851/3834/2187/files/Focus_Fuel_Rhino55.woff2?v=1702870607");
+}
+
+@font-face {
+  font-family: Rhino85;
+  src: url("https://cdn.shopify.com/s/files/1/0851/3834/2187/files/Focus_Fuel_Rhino85.woff2?v=1702870646");
 }
 
 /* outline and border styling for Windows High Contrast Mode */
@@ -3499,3 +3527,5 @@ details-disclosure > details {
     --border-offset: 0px; /* Prevent the border from growing on buttons when this effect is on. */
   }
 }
+
+

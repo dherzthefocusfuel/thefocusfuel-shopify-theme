@@ -1,0 +1,28 @@
+<div class="product-showcase">
+  <h2>Product showcase</h2>
+  {{ section.settings['product-showcase-title'] }}
+</div>
+
+{% schema %}
+{
+  "name": "Product Showcase",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "product-showcase-title",
+      "label": "Product showcase text",
+      "default": "showcase default"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Showcase Cam"
+    }
+  ]
+}
+{% endschema %}
