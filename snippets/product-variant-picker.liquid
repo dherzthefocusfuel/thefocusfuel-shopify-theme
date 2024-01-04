@@ -32,7 +32,7 @@
     {{ block.shopify_attributes }}
   >
     {%- for option in product.options_with_values -%}
-      <fieldset class="js ffforminput">
+      <fieldset class="js ffforminput flex flex-row gap-[8px]">
         <legend class="">
           {{ option.name | append: ': ' -}}
           <span class="option_value" id="selected-value-{{ forloop.index }}">{{ option.selected_value }}</span>

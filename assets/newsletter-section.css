@@ -19,10 +19,6 @@
   margin-top: 2rem;
 }
 
-.newsletter__wrapper > * + .newsletter-form {
-  margin-top: 3rem;
-}
-
 .newsletter__subheading {
   max-width: 70rem;
   margin-left: auto;

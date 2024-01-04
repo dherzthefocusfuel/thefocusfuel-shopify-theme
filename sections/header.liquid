@@ -77,6 +77,11 @@
     line-height: 1;
   }
 
+  {% comment %} change color of header that appears on scroll {% endcomment %}
+  .scrolled-past-header {
+    background-color: #1F326A;
+  }
+
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
     .scrolled-past-header .header__heading-logo-wrapper {
       width: 75%;
@@ -248,15 +253,15 @@
     {%- endif -%}
 
     <div class="ffheader ffheaderleft">
-      <a href="" class="ffha"> shop </a>
-      <a href="" class="ffha"> about </a>
+      <a href="https://quickstart-19157288.myshopify.com/products/focusfuel" class="ffha"> shop </a>
+      {% comment %} <a href="" class="ffha"> about </a> {% endcomment %}
     </div>
 
     <div class="ffheader ffheaderright">
-      <a href="" class="ffha"> faqs </a>
+      <a href="/pages/faqs" class="ffha"> faqs </a>
       <a href="{{ routes.cart_url }}" class="ffha cartflex" id="cart-icon-bubble">
         cart
-        <span class="ffcartcount">{{ cart.item_count }}</span>
+        <span class="ffcartcount text-[#1F326A]">{{ cart.item_count }}</span>
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
       </a>
   </header>

@@ -1,0 +1,70 @@
+<div class="py-[96px] flex flex-col w-full gap-[48px] items-center overflow-hidden bg-[#00C2F3]">
+  <div class="flex flex-col gap-[12px] items-center">
+    <h3 class="!text-[36px] font-['Rhino85'] text-[#1F326A]">Energy On The Go #FocusFuelFamily</h3>
+    <div class="flex flex-row items-center gap-[16px]">
+      <a href="https://www.instagram.com">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.6667 0C2.98533 0 0 2.98533 0 6.6667V17.3333C0 21.0147 2.98533 24 6.6667 24H17.3333C21.0147 24 24 21.0147 24 17.3333V6.6667C24 2.98533 21.0147 0 17.3333 0H6.6667ZM20 2.66667C20.736 2.66667 21.3333 3.264 21.3333 4C21.3333 4.736 20.736 5.33333 20 5.33333C19.264 5.33333 18.6667 4.736 18.6667 4C18.6667 3.264 19.264 2.66667 20 2.66667ZM12 5.33333C15.6813 5.33333 18.6667 8.3187 18.6667 12C18.6667 15.6813 15.6813 18.6667 12 18.6667C8.3187 18.6667 5.33333 15.6813 5.33333 12C5.33333 8.3187 8.3187 5.33333 12 5.33333ZM12 8C10.9391 8 9.9217 8.4214 9.1716 9.1716C8.4214 9.9217 8 10.9391 8 12C8 13.0609 8.4214 14.0783 9.1716 14.8284C9.9217 15.5786 10.9391 16 12 16C13.0609 16 14.0783 15.5786 14.8284 14.8284C15.5786 14.0783 16 13.0609 16 12C16 10.9391 15.5786 9.9217 14.8284 9.1716C14.0783 8.4214 13.0609 8 12 8Z" fill="white" fill-opacity="0.75"/>
+        </svg>
+      </a>
+      <a href="https://www.tiktok.com">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 0C1.80671 0 0 1.80671 0 4V20C0 22.1933 1.80671 24 4 24H20C22.1933 24 24 22.1933 24 20V4C24 1.80671 22.1933 0 20 0H4ZM12 5.33333H14.6667C14.6667 6.67333 16.628 8 17.3333 8V10.6667C16.5267 10.6667 15.5573 10.3122 14.6667 9.71354V14.6667C14.6667 16.872 12.872 18.6667 10.6667 18.6667C8.46133 18.6667 6.66667 16.872 6.66667 14.6667C6.66667 12.4613 8.46133 10.6667 10.6667 10.6667V13.3333C9.93067 13.3333 9.33333 13.932 9.33333 14.6667C9.33333 15.4013 9.93067 16 10.6667 16C11.4027 16 12 15.4013 12 14.6667V5.33333Z" fill="white" fill-opacity="0.75"/>
+        </svg>
+      </a>
+      <a href="https://www.facebook.com">
+        <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.3333 0C5.96933 0 0 5.96933 0 13.3334C0 20.0174 4.924 25.5374 11.34 26.5014V16.8667H8.04133V13.3614H11.34V11.0294C11.34 7.168 13.2213 5.47333 16.4306 5.47333C17.968 5.47333 18.78 5.58666 19.1653 5.63866V8.69733H16.976C15.6133 8.69733 15.1373 9.98937 15.1373 11.4454V13.3614H19.1306L18.5893 16.8667H15.1386V26.5294C21.6466 25.648 26.6666 20.0827 26.6666 13.3334C26.6666 5.96933 20.6973 0 13.3333 0Z" fill="white" fill-opacity="0.75"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="flex flex-row gap-[24px] justify-center">
+    {%
+      render 'ff-social-post',
+      image: 'ff_sp1',
+      link: 'https://www.instagram.com/p/C0gygJjNWaN/',
+    %}
+    {%
+      render 'ff-social-post',
+      image: 'ff_sp2',
+      link: 'https://www.instagram.com/p/C0gygJjNWaN/',
+    %}
+    {%
+      render 'ff-social-post',
+      image: 'ff_sp3',
+      link: 'https://www.instagram.com/p/C0gygJjNWaN/',
+    %}
+    {%
+      render 'ff-social-post',
+      image: 'ff_sp4',
+      link: 'https://www.instagram.com/p/C0gygJjNWaN/',
+    %}
+    {%
+      render 'ff-social-post',
+      image: 'ff_sp5',
+      link: 'https://www.instagram.com/p/C0gygJjNWaN/',
+    %}
+    {%
+      render 'ff-social-post',
+      image: 'ff_sp6',
+      link: 'https://www.instagram.com/p/C0gygJjNWaN/',
+    %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Social Showcase",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "presets": [
+    {
+      "name": "Social Showcase"
+    }
+  ]
+}
+{% endschema %}

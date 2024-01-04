@@ -2326,7 +2326,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
 
 /* section-header */
 .section-header.shopify-section-group-header-group {
-  z-index: 3;
+  z-index: 30;
 }
 
 .shopify-section-header-sticky {
@@ -2347,11 +2347,11 @@ product-info .loading__spinner:not(.hidden) ~ *,
 }
 
 .shopify-section-group-header-group {
-  z-index: 4;
+  z-index: 30;
 }
 
 .section-header ~ .shopify-section-group-header-group {
-  z-index: initial;
+  z-index: 30;
 }
 
 /* Main Header Layout */
