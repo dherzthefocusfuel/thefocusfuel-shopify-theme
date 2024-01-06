@@ -1,4 +1,29 @@
-<div class="product-showcase flex flex-row w-full">
+<script src="{{ 'splide.min.js' | asset_url }}" async></script>
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+
+<style>
+  /* Hide mobile showcase by default */
+  .ff-product-showcase-mobile {
+    display: none;
+  }
+
+  /* Show desktop showcase by default */
+  .ff-product-showcase-desktop {
+    display: flex;
+  }
+
+  /* When viewport is 990px or less, switch the displays */
+  @media (max-width: 990px) {
+    .ff-product-showcase-mobile {
+      display: block;
+    }
+    .ff-product-showcase-desktop {
+      display: none;
+    }
+  }
+</style>
+
+<div class="ff-product-showcase-desktop flex-row w-full">
   {% render 'ff-product-card',
     name: 'Electric Blue Razzberry Lemonade',
     image: 'FocusFuel_3.17OZ_ElectricBlueRazzberryLemonade_RGB',
@@ -24,6 +49,90 @@
     type: 'fp'
   %}
 </div>
+
+<div
+  id="product-slider"
+  class="splide ff-product-showcase-mobile"
+  data-splide='{"type":"loop","perPage":1, "pagination":false}'
+>
+  <div class="splide__arrows">
+    <button class="splide__arrow splide__arrow--prev !left-[20%] !bg-transparent !opacity-100">
+      <svg
+        class="!w-[40px] !h-[26px]"
+        width="120"
+        height="52"
+        viewBox="0 0 40 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M5 13L10 0H5L0 13H5Z" fill="currentColor" fill-opacity="0.33"/>
+        <path d="M10 13L5 26H0L5 13H10Z" fill="currentColor" fill-opacity="0.33"/>
+        <path d="M15 13L20 0H15L10 13H15Z" fill="currentColor" fill-opacity="0.66"/>
+        <path d="M20 13H15L10 26H15L20 13Z" fill="currentColor" fill-opacity="0.66"/>
+        <path d="M30 0H25L20 13H25L20 26H30L40 12.9997L30 0Z" fill="currentColor"/>
+      </svg>
+    </button>
+    <button class="splide__arrow splide__arrow--next !right-[20%] !bg-transparent !opacity-100">
+      <svg
+        class="!w-[40px] !h-[26px]"
+        width="120"
+        height="52"
+        viewBox="0 0 40 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M5 13L10 0H5L0 13H5Z" fill="currentColor" fill-opacity="0.33"/>
+        <path d="M10 13L5 26H0L5 13H10Z" fill="currentColor" fill-opacity="0.33"/>
+        <path d="M15 13L20 0H15L10 13H15Z" fill="currentColor" fill-opacity="0.66"/>
+        <path d="M20 13H15L10 26H15L20 13Z" fill="currentColor" fill-opacity="0.66"/>
+        <path d="M30 0H25L20 13H25L20 26H30L40 12.9997L30 0Z" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+  <div class="splide__track">
+    <div class="splide__list">
+      {% comment %}
+        <div class="splide__slide">1</div>
+        <div class="splide__slide">2</div>
+        <div class="splide__slide">3</div>
+        <div class="splide__slide">4</div>
+      {% endcomment %}
+      {% render 'ff-product-card',
+        name: 'Electric Blue Razzberry Lemonade',
+        image: 'FocusFuel_3.17OZ_ElectricBlueRazzberryLemonade_RGB',
+        link: 'https://quickstart-19157288.myshopify.com/products/focusfuel?variant=47603205308715',
+        background_color: '#00C2F3',
+        button_color: '#1F326A',
+        type: 'br',
+        is_slide: true
+      %}
+      {% render 'ff-product-card',
+        name: 'Electric Watermelon',
+        image: 'FocusFuel_3.17OZ_Watermelon_RGB',
+        link: 'https://quickstart-19157288.myshopify.com/products/focusfuel?variant=47603205341483',
+        background_color: '#EF4871',
+        button_color: '#004737',
+        type: 'wm',
+        is_slide: true
+      %}
+      {% render 'ff-product-card',
+        name: 'Electric Fruit Punch',
+        image: 'FocusFuel_3.17OZ_FruitPunch_RGB',
+        link: 'https://quickstart-19157288.myshopify.com/products/focusfuel?variant=47603205374251',
+        background_color: '#F7941D',
+        button_color: '#A51C17',
+        type: 'fp',
+        is_slide: true
+      %}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Splide('#product-slider').mount();
+  });
+</script>
 
 {% schema %}
 {

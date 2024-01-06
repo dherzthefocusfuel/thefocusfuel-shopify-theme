@@ -12,344 +12,346 @@
 {% assign first_word = words[0] %}
 {% assign remaining_words = words | slice: 1, words.size | join: ' ' %}
 
-<a
-  href="{{ link }}"
-  class="fflnbg flex flex-col grow items-center py-[96px] relative overflow-hidden group/product-card [&_img]:transition-all [&_img]:duration-500 [&_img]:hover:scale-90 [&_img]:z-0"
-  style="background-color: {{ background_color }}"
->
-  <div
-    class="flex flex-col items-center leading-tight drop-shadow-[1.5px_1.5px_rgba(255,255,255,1)] group-hover/product-card:translate-y-[48px] transition-all duration-500"
-    style="color: {{ button_color }}"
+<div class="{% if is_slide %}splide__slide{% endif %} grow">
+  <a
+    href="{{ link }}"
+    class="fflnbg flex flex-col items-center justify-center py-[96px] relative overflow-hidden group/product-card [&_img]:transition-all [&_img]:duration-500 [&_img]:hover:scale-90 [&_img]:z-0 min-h-[600px]"
+    style="background-color: {{ background_color }}"
   >
-    <div>{{ first_word }}</div>
-    <div>{{ remaining_words }}</div>
-  </div>
-  <img
-    src="{{ image | append: '.png' | file_url }}"
-    alt="{{ name }}"
-    width="500"
-    height="500"
-    loading="eager"
-    class="drop-shadow-[0_16px_64px_0px_rgba(0,0,0,0.33)] group-hover/product-card:scale-110 group-hover/product-card:rotate-2 group-hover/product-card:-translate-y-[24px] transition-all duration-500 relative !z-20"
-  >
-  <div
-    class="flex flex-row items-center h-[48px] text-[20px] bg-none text-white uppercase border-none p-0 cursor-pointer outline-none group-hover/product-card:scale-110 transition-all duration-500 relative z-10"
-  >
-    <div class="h-full" style="color: {{ button_color }}">
-      <svg width="21" height="48" viewBox="0 0 21 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 -7.86805e-07L2.09815e-06 24L12 24L0 48L21 48L21 0L12 -7.86805e-07Z" fill="currentColor"/>
-      </svg>
-    </div>
-
     <div
-      class="flex flex-row items-center justify-center border-y-[3px] h-[48px] px-[10px] mx-[-2px]"
-      style="background-color: {{ button_color }}; border-color: {{ button_color }}"
+      class="flex flex-col items-center leading-tight drop-shadow-[1.5px_1.5px_rgba(255,255,255,1)] group-hover/product-card:translate-y-[48px] transition-all duration-500"
+      style="color: {{ button_color }}"
     >
-      shop now
+      <div>{{ first_word }}</div>
+      <div>{{ remaining_words }}</div>
     </div>
+    <img
+      src="{{ image | append: '.png' | file_url }}"
+      alt="{{ name }}"
+      width="500"
+      height="500"
+      loading="eager"
+      class="drop-shadow-[0_16px_64px_0px_rgba(0,0,0,0.33)] group-hover/product-card:scale-110 group-hover/product-card:rotate-2 group-hover/product-card:-translate-y-[24px] transition-all duration-500 {% if is_slide %}w-[50%]{% endif %} relative !z-20"
+    >
+    <div
+      class="flex flex-row items-center h-[48px] text-[20px] bg-none text-white uppercase border-none p-0 cursor-pointer outline-none group-hover/product-card:scale-110 transition-all duration-500 relative z-10"
+    >
+      <div class="h-full" style="color: {{ button_color }}">
+        <svg width="21" height="48" viewBox="0 0 21 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 -7.86805e-07L2.09815e-06 24L12 24L0 48L21 48L21 0L12 -7.86805e-07Z" fill="currentColor"/>
+        </svg>
+      </div>
 
-    <div class="h-full" style="color: {{ button_color }}">
-      <svg width="21" height="48" viewBox="0 0 21 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9 48L21 24H9L21 0H0V48H9Z" fill="currentColor"/>
-      </svg>
+      <div
+        class="flex flex-row items-center justify-center border-y-[3px] h-[48px] px-[10px] mx-[-2px]"
+        style="background-color: {{ button_color }}; border-color: {{ button_color }}"
+      >
+        shop now
+      </div>
+
+      <div class="h-full" style="color: {{ button_color }}">
+        <svg width="21" height="48" viewBox="0 0 21 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 48L21 24H9L21 0H0V48H9Z" fill="currentColor"/>
+        </svg>
+      </div>
     </div>
-  </div>
-  {% if type == 'br' %}
-    <img
-      src="{{ "ff_lemon_wedge" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br1 absolute w-[25%] origin-top-left rotate-[-15deg] top-[-1%] left-[-10%] group-hover/product-card:top-[4%] group-hover/product-card:left-[-5%]"
-    >
-    <img
-      src="{{ "ff_blueberry" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br2 absolute w-[17%] origin-top-left -rotate-45 top-[11%] left-[-10%] group-hover/product-card:top-[18%] group-hover/product-card:left-[-4%]"
-    >
-    <img
-      src="{{ "ff_blueberry" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br3 absolute w-[17%] origin-top-left rotate-[15deg] top-[35%] left-[-3%] group-hover/product-card:top-[33%] group-hover/product-card:left-[4%]"
-    >
-    <img
-      src="{{ "ff_lemon_wedge" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br4 absolute w-[30%] origin-top-left rotate-[75deg] top-[41%] left-[5%] group-hover/product-card:left-[10%]"
-    >
-    <img
-      src="{{ "ff_blueberry" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br5 absolute w-[17%] origin-top-left rotate-[-135deg] bottom-[15%] left-[3%] group-hover/product-card:bottom-[17%] group-hover/product-card:left-[8%]"
-    >
-    <img
-      src="{{ "ff_lemon_half" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br6 absolute w-[40%] origin-top-left rotate-[15deg] bottom-[-1%] left-[-10%] group-hover/product-card:bottom-[4%] group-hover/product-card:left-[-5%]"
-    >
-    <img
-      src="{{ "ff_blueberry" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br7 absolute w-[17%] origin-top-left rotate-[-30deg] bottom-[-7%] left-[40%] group-hover/product-card:bottom-[-5%]"
-    >
-    <img
-      src="{{ "ff_lemon_wedge" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br8 absolute w-[30%] origin-top-left rotate-[-15deg] bottom-[-3%] right-[-4%] group-hover/product-card:bottom-[2%] group-hover/product-card:right-[1%]"
-    >
-    <img
-      src="{{ "ff_blueberry" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br9 absolute w-[17%] origin-top-left -rotate-45 bottom-[15%] right-[-4%] group-hover/product-card:bottom-[17%] group-hover/product-card:right-[1%]"
-    >
-    <img
-      src="{{ "ff_blueberry" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br10 absolute w-[17%] origin-top-left rotate-[15deg] bottom-[40%] right-[-8%] group-hover/product-card:right-[-3%]"
-    >
-    <img
-      src="{{ "ff_lemon_wedge" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br11 absolute w-[30%] origin-top-left rotate-[150deg] top-[41%] right-[-46%] group-hover/product-card:right-[-41%]"
-    >
-    <img
-      src="{{ "ff_lemon_half" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br12 absolute w-[40%] origin-top-left -rotate-45 top-[6%] right-[-15%] group-hover/product-card:top-[8%] group-hover/product-card:right-[-10%]"
-    >
-    <img
-      src="{{ "ff_blueberry" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br13 absolute w-[17%] origin-top-left rotate-[75deg] top-[-5%] right-[13%] group-hover/product-card:top-[0%] group-hover/product-card:right-[18%]"
-    >
-    <img
-      src="{{ "ff_blueberry" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br14 absolute w-[17%] origin-top-left rotate-[165deg] top-[3%] left-[46%] group-hover/product-card:top-[8%]"
-    >
-  {% elsif type == 'wm' %}
-    <img
-      src="{{ "ff_wmelon" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br1 absolute w-[25%] origin-top-left rotate-[-15deg] top-[-1%] left-[-10%] group-hover/product-card:top-[4%] group-hover/product-card:left-[-5%]"
-    >
-    <img
-      src="{{ "ff_wmelon" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br2 absolute w-[17%] origin-top-left rotate-[135deg] top-[22%] left-[12%] group-hover/product-card:top-[26%] group-hover/product-card:left-[17%]"
-    >
-    <img
-      src="{{ "ff_wmelon" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br3 absolute w-[17%] origin-top-left rotate-[15deg] top-[35%] left-[-3%] group-hover/product-card:top-[33%] group-hover/product-card:left-[2%]"
-    >
-    <img
-      src="{{ "ff_wmelon" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br4 absolute w-[30%] origin-top-left rotate-[75deg] top-[41%] left-[5%] group-hover/product-card:left-[10%]"
-    >
-    <img
-      src="{{ "ff_wmelon" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br5 absolute w-[17%] origin-top-left rotate-[-135deg] bottom-[15%] left-[3%] group-hover/product-card:bottom-[17%] group-hover/product-card:left-[8%]"
-    >
-    <img
-      src="{{ "ff_wmelon" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br6 absolute w-[40%] origin-top-left rotate-[75deg] bottom-[-5%] left-[23%] group-hover/product-card:bottom-[0%] group-hover/product-card:left-[25%]"
-    >
-    <img
-      src="{{ "ff_wmelon" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br7 absolute w-[17%] origin-top-left rotate-[-30deg] bottom-[-7%] left-[40%] group-hover/product-card:bottom-[-2%]"
-    >
-    <img
-      src="{{ "ff_wmelon" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br8 absolute w-[30%] origin-top-left rotate-[-15deg] bottom-[-3%] right-[-4%] group-hover/product-card:bottom-[2%] group-hover/product-card:right-[1%]"
-    >
-    <img
-      src="{{ "ff_wmelon" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br9 absolute w-[17%] origin-top-left -rotate-45 bottom-[15%] right-[-4%] group-hover/product-card:bottom-[17%] group-hover/product-card:right-[1%]"
-    >
-    <img
-      src="{{ "ff_wmelon" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br10 absolute w-[17%] origin-top-left rotate-[15deg] bottom-[40%] right-[-8%] group-hover/product-card:right-[-3%]"
-    >
-    <img
-      src="{{ "ff_wmelon" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br11 absolute w-[30%] origin-top-left rotate-[150deg] top-[41%] right-[-46%] group-hover/product-card:right-[-41%]"
-    >
-    <img
-      src="{{ "ff_wmelon" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br12 absolute w-[40%] origin-top-left -rotate-45 top-[6%] right-[-15%] group-hover/product-card:top-[8%] group-hover/product-card:right-[-10%]"
-    >
-    <img
-      src="{{ "ff_wmelon" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br13 absolute w-[17%] origin-top-left rotate-[75deg] top-[-5%] right-[13%] group-hover/product-card:top-[0%] group-hover/product-card:right-[18%]"
-    >
-    <img
-      src="{{ "ff_wmelon" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br14 absolute w-[17%] origin-top-left rotate-[165deg] top-[3%] left-[46%] group-hover/product-card:top-[8%]"
-    >
-  {% elsif type == 'fp' %}
-    <img
-      src="{{ "ff_orange_wedge" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br1 absolute w-[25%] origin-top-left rotate-[-15deg] top-[-1%] left-[-10%] group-hover/product-card:top-[4%] group-hover/product-card:left-[-5%]"
-    >
-    <img
-      src="{{ "ff_cberry" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br2 absolute w-[17%] origin-top-left top-[22%] left-[12%] rotate-[135deg] group-hover/product-card:top-[26%] group-hover/product-card:left-[17%]"
-    >
-    <img
-      src="{{ "ff_pineapple" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br3 absolute w-[17%] origin-top-left top-[35%] left-[-3%] rotate-[15deg] group-hover/product-card:top-[33%] group-hover/product-card:left-[2%]"
-    >
-    <img
-      src="{{ "ff_lime_wedge" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br4 absolute w-[30%] origin-top-left rotate-[75deg] top-[41%] left-[5%] group-hover/product-card:left-[10%]"
-    >
-    <img
-      src="{{ "ff_cberry" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br5 absolute w-[17%] origin-top-left bottom-[15%] left-[3%] rotate-[-135deg] group-hover/product-card:bottom-[18%] group-hover/product-card:left-[8%]"
-    >
-    <img
-      src="{{ "ff_orange" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br6 absolute w-[40%] origin-top-left rotate-[75deg] bottom-[-5%] left-[23%] group-hover/product-card:bottom-[0%] group-hover/product-card:left-[25%]"
-    >
-    <img
-      src="{{ "ff_cberry" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br7 absolute w-[17%] origin-top-left bottom-[-7%] left-[40%] rotate-[-30deg] group-hover/product-card:bottom-[-2%]"
-    >
-    <img
-      src="{{ "ff_orange_wedge" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br8 absolute w-[30%] origin-top-left rotate-[-15deg] bottom-[-3%] right-[-4%] group-hover/product-card:bottom-[2%] group-hover/product-card:right-[1%]"
-    >
-    <img
-      src="{{ "ff_cberry" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br9 absolute w-[17%] origin-top-left bottom-[15%] right-[-4%] -rotate-45 group-hover/product-card:bottom-[17%] group-hover/product-card:right-[1%]"
-    >
-    <img
-      src="{{ "ff_cberry" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br10 absolute w-[17%] origin-top-left bottom-[40%] right-[-8%] rotate-[15deg] group-hover/product-card:right-[-3%]"
-    >
-    <img
-      src="{{ "ff_orange_wedge" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br11 absolute w-[30%] origin-top-left rotate-[150deg] top-[41%] right-[-46%] group-hover/product-card:right-[-41%]"
-    >
-    <img
-      src="{{ "ff_lime" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br12 absolute w-[40%] origin-top-left -rotate-45 top-[6%] right-[-15%] group-hover/product-card:top-[8%] group-hover/product-card:right-[-10%]"
-    >
-    <img
-      src="{{ "ff_pineapple" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br13 absolute w-[17%] origin-top-left top-[-5%] right-[13%] rotate-[75deg] group-hover/product-card:top-[0%] group-hover/product-card:right-[18%]"
-    >
-    <img
-      src="{{ "ff_cberry" | append: '.png' | file_url }}"
-      width="100"
-      height="100"
-      loading="eager"
-      class="br14 absolute w-[17%] origin-top-left top-[3%] left-[46%] rotate-[165deg] group-hover/product-card:top-[8%]"
-    >
-  {% endif %}
-</a>
+    {% if type == 'br' %}
+      <img
+        src="{{ "ff_lemon_wedge" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br1 absolute w-[25%] origin-top-left rotate-[-15deg] top-[-1%] left-[-10%] group-hover/product-card:top-[4%] group-hover/product-card:left-[-5%]"
+      >
+      <img
+        src="{{ "ff_blueberry" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br2 absolute w-[17%] origin-top-left -rotate-45 top-[11%] left-[-10%] group-hover/product-card:top-[18%] group-hover/product-card:left-[-4%]"
+      >
+      <img
+        src="{{ "ff_blueberry" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br3 absolute w-[17%] origin-top-left rotate-[15deg] top-[35%] left-[-3%] group-hover/product-card:top-[33%] group-hover/product-card:left-[4%]"
+      >
+      <img
+        src="{{ "ff_lemon_wedge" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br4 absolute w-[30%] origin-top-left rotate-[75deg] top-[41%] left-[5%] group-hover/product-card:left-[10%]"
+      >
+      <img
+        src="{{ "ff_blueberry" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br5 absolute w-[17%] origin-top-left rotate-[-135deg] bottom-[15%] left-[3%] group-hover/product-card:bottom-[17%] group-hover/product-card:left-[8%]"
+      >
+      <img
+        src="{{ "ff_lemon_half" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br6 absolute w-[40%] origin-top-left rotate-[15deg] bottom-[-1%] left-[-10%] group-hover/product-card:bottom-[4%] group-hover/product-card:left-[-5%]"
+      >
+      <img
+        src="{{ "ff_blueberry" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br7 absolute w-[17%] origin-top-left rotate-[-30deg] bottom-[-7%] left-[40%] group-hover/product-card:bottom-[-5%]"
+      >
+      <img
+        src="{{ "ff_lemon_wedge" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br8 absolute w-[30%] origin-top-left rotate-[-15deg] bottom-[-3%] right-[-4%] group-hover/product-card:bottom-[2%] group-hover/product-card:right-[1%]"
+      >
+      <img
+        src="{{ "ff_blueberry" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br9 absolute w-[17%] origin-top-left -rotate-45 bottom-[15%] right-[-4%] group-hover/product-card:bottom-[17%] group-hover/product-card:right-[1%]"
+      >
+      <img
+        src="{{ "ff_blueberry" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br10 absolute w-[17%] origin-top-left rotate-[15deg] bottom-[40%] right-[-8%] group-hover/product-card:right-[-3%]"
+      >
+      <img
+        src="{{ "ff_lemon_wedge" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br11 absolute w-[30%] origin-top-left rotate-[150deg] top-[41%] right-[-46%] group-hover/product-card:right-[-41%]"
+      >
+      <img
+        src="{{ "ff_lemon_half" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br12 absolute w-[40%] origin-top-left -rotate-45 top-[6%] right-[-15%] group-hover/product-card:top-[8%] group-hover/product-card:right-[-10%]"
+      >
+      <img
+        src="{{ "ff_blueberry" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br13 absolute w-[17%] origin-top-left rotate-[75deg] top-[-5%] right-[13%] group-hover/product-card:top-[0%] group-hover/product-card:right-[18%]"
+      >
+      <img
+        src="{{ "ff_blueberry" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br14 absolute w-[17%] origin-top-left rotate-[165deg] top-[3%] left-[46%] group-hover/product-card:top-[8%]"
+      >
+    {% elsif type == 'wm' %}
+      <img
+        src="{{ "ff_wmelon" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br1 absolute w-[25%] origin-top-left rotate-[-15deg] top-[-1%] left-[-10%] group-hover/product-card:top-[4%] group-hover/product-card:left-[-5%]"
+      >
+      <img
+        src="{{ "ff_wmelon" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br2 absolute w-[17%] origin-top-left rotate-[135deg] top-[22%] left-[12%] group-hover/product-card:top-[26%] group-hover/product-card:left-[17%]"
+      >
+      <img
+        src="{{ "ff_wmelon" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br3 absolute w-[17%] origin-top-left rotate-[15deg] top-[35%] left-[-3%] group-hover/product-card:top-[33%] group-hover/product-card:left-[2%]"
+      >
+      <img
+        src="{{ "ff_wmelon" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br4 absolute w-[30%] origin-top-left rotate-[75deg] top-[41%] left-[5%] group-hover/product-card:left-[10%]"
+      >
+      <img
+        src="{{ "ff_wmelon" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br5 absolute w-[17%] origin-top-left rotate-[-135deg] bottom-[15%] left-[3%] group-hover/product-card:bottom-[17%] group-hover/product-card:left-[8%]"
+      >
+      <img
+        src="{{ "ff_wmelon" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br6 absolute w-[40%] origin-top-left rotate-[75deg] bottom-[-5%] left-[23%] group-hover/product-card:bottom-[0%] group-hover/product-card:left-[25%]"
+      >
+      <img
+        src="{{ "ff_wmelon" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br7 absolute w-[17%] origin-top-left rotate-[-30deg] bottom-[-7%] left-[40%] group-hover/product-card:bottom-[-2%]"
+      >
+      <img
+        src="{{ "ff_wmelon" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br8 absolute w-[30%] origin-top-left rotate-[-15deg] bottom-[-3%] right-[-4%] group-hover/product-card:bottom-[2%] group-hover/product-card:right-[1%]"
+      >
+      <img
+        src="{{ "ff_wmelon" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br9 absolute w-[17%] origin-top-left -rotate-45 bottom-[15%] right-[-4%] group-hover/product-card:bottom-[17%] group-hover/product-card:right-[1%]"
+      >
+      <img
+        src="{{ "ff_wmelon" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br10 absolute w-[17%] origin-top-left rotate-[15deg] bottom-[40%] right-[-8%] group-hover/product-card:right-[-3%]"
+      >
+      <img
+        src="{{ "ff_wmelon" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br11 absolute w-[30%] origin-top-left rotate-[150deg] top-[41%] right-[-46%] group-hover/product-card:right-[-41%]"
+      >
+      <img
+        src="{{ "ff_wmelon" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br12 absolute w-[40%] origin-top-left -rotate-45 top-[6%] right-[-15%] group-hover/product-card:top-[8%] group-hover/product-card:right-[-10%]"
+      >
+      <img
+        src="{{ "ff_wmelon" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br13 absolute w-[17%] origin-top-left rotate-[75deg] top-[-5%] right-[13%] group-hover/product-card:top-[0%] group-hover/product-card:right-[18%]"
+      >
+      <img
+        src="{{ "ff_wmelon" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br14 absolute w-[17%] origin-top-left rotate-[165deg] top-[3%] left-[46%] group-hover/product-card:top-[8%]"
+      >
+    {% elsif type == 'fp' %}
+      <img
+        src="{{ "ff_orange_wedge" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br1 absolute w-[25%] origin-top-left rotate-[-15deg] top-[-1%] left-[-10%] group-hover/product-card:top-[4%] group-hover/product-card:left-[-5%]"
+      >
+      <img
+        src="{{ "ff_cberry" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br2 absolute w-[17%] origin-top-left top-[22%] left-[12%] rotate-[135deg] group-hover/product-card:top-[26%] group-hover/product-card:left-[17%]"
+      >
+      <img
+        src="{{ "ff_pineapple" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br3 absolute w-[17%] origin-top-left top-[35%] left-[-3%] rotate-[15deg] group-hover/product-card:top-[33%] group-hover/product-card:left-[2%]"
+      >
+      <img
+        src="{{ "ff_lime_wedge" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br4 absolute w-[30%] origin-top-left rotate-[75deg] top-[41%] left-[5%] group-hover/product-card:left-[10%]"
+      >
+      <img
+        src="{{ "ff_cberry" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br5 absolute w-[17%] origin-top-left bottom-[15%] left-[3%] rotate-[-135deg] group-hover/product-card:bottom-[18%] group-hover/product-card:left-[8%]"
+      >
+      <img
+        src="{{ "ff_orange" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br6 absolute w-[40%] origin-top-left rotate-[75deg] bottom-[-5%] left-[23%] group-hover/product-card:bottom-[0%] group-hover/product-card:left-[25%]"
+      >
+      <img
+        src="{{ "ff_cberry" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br7 absolute w-[17%] origin-top-left bottom-[-7%] left-[40%] rotate-[-30deg] group-hover/product-card:bottom-[-2%]"
+      >
+      <img
+        src="{{ "ff_orange_wedge" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br8 absolute w-[30%] origin-top-left rotate-[-15deg] bottom-[-3%] right-[-4%] group-hover/product-card:bottom-[2%] group-hover/product-card:right-[1%]"
+      >
+      <img
+        src="{{ "ff_cberry" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br9 absolute w-[17%] origin-top-left bottom-[15%] right-[-4%] -rotate-45 group-hover/product-card:bottom-[17%] group-hover/product-card:right-[1%]"
+      >
+      <img
+        src="{{ "ff_cberry" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br10 absolute w-[17%] origin-top-left bottom-[40%] right-[-8%] rotate-[15deg] group-hover/product-card:right-[-3%]"
+      >
+      <img
+        src="{{ "ff_orange_wedge" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br11 absolute w-[30%] origin-top-left rotate-[150deg] top-[41%] right-[-46%] group-hover/product-card:right-[-41%]"
+      >
+      <img
+        src="{{ "ff_lime" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br12 absolute w-[40%] origin-top-left -rotate-45 top-[6%] right-[-15%] group-hover/product-card:top-[8%] group-hover/product-card:right-[-10%]"
+      >
+      <img
+        src="{{ "ff_pineapple" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br13 absolute w-[17%] origin-top-left top-[-5%] right-[13%] rotate-[75deg] group-hover/product-card:top-[0%] group-hover/product-card:right-[18%]"
+      >
+      <img
+        src="{{ "ff_cberry" | append: '.png' | file_url }}"
+        width="100"
+        height="100"
+        loading="eager"
+        class="br14 absolute w-[17%] origin-top-left top-[3%] left-[46%] rotate-[165deg] group-hover/product-card:top-[8%]"
+      >
+    {% endif %}
+  </a>
+</div>
