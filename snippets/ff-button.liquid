@@ -1,0 +1,25 @@
+{% assign button_text = button_text | default: 'shop now' %}
+{% assign product_url = product_url | default: '/products/focus-fuel' %}
+
+<a
+  href="{{ product_url }}"
+  class="flex flex-row items-center h-[48px] text-[20px] bg-none text-white uppercase border-none p-0 cursor-pointer outline-none group-hover/product-card:scale-110 transition-all duration-500 relative z-10"
+>
+  <div class="h-full text-[#1F326A]">
+    <svg width="21" height="48" viewBox="0 0 21 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 -7.86805e-07L2.09815e-06 24L12 24L0 48L21 48L21 0L12 -7.86805e-07Z" fill="currentColor"/>
+    </svg>
+  </div>
+
+  <div
+    class="flex flex-row items-center justify-center border-y-[3px] h-[48px] px-[10px] mx-[-2px] bg-[#1F326A] border-[#1F326A] font-[Rhino85]"
+  >
+    {{ button_text }}
+  </div>
+
+  <div class="h-full text-[#1F326A]">
+    <svg width="21" height="48" viewBox="0 0 21 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9 48L21 24H9L21 0H0V48H9Z" fill="currentColor"/>
+    </svg>
+  </div>
+</a>

@@ -1,5 +1,8 @@
 {
   "sections": {
+    "hero": {
+      "type": "ff-hero"
+    },
     "product_showcase_asdfasdlkf": {
       "type": "product-showcase-cam",
       "settings": {
@@ -125,5 +128,5 @@
       "type": "ff-social-showcase"
     }
   },
-  "order": ["product_showcase_asdfasdlkf", "caffeine_comp", "caffeine_edu", "comparison", "social_showcase"]
+  "order": ["hero", "product_showcase_asdfasdlkf", "caffeine_comp", "caffeine_edu", "comparison", "social_showcase"]
 }

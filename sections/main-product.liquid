@@ -28,7 +28,6 @@
   {%- endif -%}
 
   {%- style -%}
-
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
       padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -119,6 +118,7 @@
                     price_class: 'price--large'
                   -%}
                 </div>
+                <div>what the fork</div>
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>

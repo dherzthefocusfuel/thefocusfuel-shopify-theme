@@ -1,0 +1,60 @@
+<style>
+  .ff-hero-bg {
+    background-image: url('https://cdn.shopify.com/s/files/1/0568/2275/9502/files/ff_hero_pl.webp?v=1704729455');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+</style>
+
+<div class="min-h-[85vh] flex flex-col bg-white items-center justify-center gap-y-[32px] ff-hero-bg">
+  <div class="flex flex-col items-center gap-y-[16px]">
+    <h1 class="font-[Rhino85] text-[64px] leading-tight text-white">{{ section.settings.title }}</h1>
+    <h3 class="font-[Rhino55] text-[20px] leading-tight text-white">
+      {{ section.settings.subtitle }}
+    </h3>
+  </div>
+  {% render 'ff-button', button_text: section.settings.button_text, product_url: section.settings.product_url %}
+</div>
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Hero title",
+      "default": "This is a large hero h"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subtitle",
+      "label": "Hero subtitle",
+      "default": "This is a small sub-description for the hero section"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Shop now"
+    },
+    {
+      "type": "text",
+      "id": "product_url",
+      "label": "Product URL",
+      "default": "/products/focus-fuel"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section"
+    }
+  ]
+}
+{% endschema %}
