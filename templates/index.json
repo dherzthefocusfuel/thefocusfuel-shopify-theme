@@ -6,6 +6,52 @@
         "product-showcase-title": "Product showcase title!"
       }
     },
+    "caffeine_comp": {
+      "type": "ff-caffeine-comparison"
+    },
+    "caffeine_edu": {
+      "type": "ff-caffeine-education",
+      "blocks": {
+        "caffeine_edu_1": {
+          "type": "edu_card",
+          "settings": {
+            "img": "shopify://shop_images/electric_watermelon.png",
+            "title": "This is the first point about caffeine",
+            "desc": "This is a more detailed description about why the caffeine is better for you and such"
+          }
+        },
+        "caffeine_edu_2": {
+          "type": "edu_card",
+          "settings": {
+            "img": "shopify://shop_images/electric_watermelon.png",
+            "title": "This is the second point about caffeine",
+            "desc": "This is a more detailed description about why the caffeine is better for you and such"
+          }
+        },
+        "caffeine_edu_3": {
+          "type": "edu_card",
+          "settings": {
+            "img": "shopify://shop_images/electric_watermelon.png",
+            "title": "This is the third point about caffeine",
+            "desc": "This is a more detailed description about why the caffeine is better for you and such"
+          }
+        },
+        "caffeine_edu_4": {
+          "type": "edu_card",
+          "settings": {
+            "img": "shopify://shop_images/electric_watermelon.png",
+            "title": "This is the fourth point about caffeine",
+            "desc": "This is a more detailed description about why the caffeine is better for you and such"
+          }
+        }
+      },
+      "block_order": ["caffeine_edu_1", "caffeine_edu_2", "caffeine_edu_3", "caffeine_edu_4"],
+      "settings": {
+        "caffeine_edu_title": "The best caffeine you can get",
+        "caffeine_edu_desc": "This is a more detailed description about why the caffeine is better for you and such",
+        "caffeine_edu_link": "/products/focusfuel"
+      }
+    },
     "comparison": {
       "type": "ff-us-vs-them",
       "blocks": {
@@ -79,9 +125,5 @@
       "type": "ff-social-showcase"
     }
   },
-  "order": [
-    "product_showcase_asdfasdlkf",
-    "comparison",
-    "social_showcase"
-  ]
+  "order": ["product_showcase_asdfasdlkf", "caffeine_comp", "caffeine_edu", "comparison", "social_showcase"]
 }

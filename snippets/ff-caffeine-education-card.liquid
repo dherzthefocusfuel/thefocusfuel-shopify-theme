@@ -1,0 +1,41 @@
+<style>
+  .ff-caffeine-edu-card-h {
+    height: 240px;
+  }
+
+  .ff-caffeine-edu-card-h3 {
+    font-size: 24px;
+  }
+
+  .ff-caffeine-edu-card-text {
+    font-size: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .ff-caffeine-edu-card-h {
+      height: 120px;
+    }
+    .ff-caffeine-edu-card-h3 {
+      font-size: 18px;
+    }
+    .ff-caffeine-edu-card-text {
+      font-size: 15px;
+    }
+  }
+</style>
+
+<div class="{% if is_slide %}splide__slide px-[48px]{% endif %}">
+  <div class="flex flex-col space-y-[16px] bg-[#F5F5F7] rounded-[24px] p-[32px] {% if is_slide %}max-w-[520px] m-auto{% endif %}">
+    <img
+      src="{{ img | img_url: "master" }}"
+      width="500"
+      height="500"
+      loading="eager"
+      class="w-full ff-caffeine-edu-card-h rounded-[12px] object-cover"
+    >
+    <div class="flex flex-col space-y-[8px]">
+      <h3 class="ff-caffeine-edu-card-h3 text-[#1F326A] font-[Rhino85] leading-tight">{{ title }}</h3>
+      <div class="ff-caffeine-edu-card-text leading-snug">{{ desc }}</div>
+    </div>
+  </div>
+</div>

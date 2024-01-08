@@ -1,0 +1,209 @@
+{% style %}
+  .ff-caffeine-comparison-lnbg {
+    background-image: url('https://cdn.shopify.com/s/files/1/0851/3834/2187/files/dark-lightning.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 120%;
+  }
+{% endstyle %}
+
+<div class="flex flex-col py-[48px] sm:py-[96px] px-[16px] sm:px-[32px] gap-y-[64px] items-center bg-[#00C2F3] ff-caffeine-comparison-lnbg">
+  <div class="flex flex-col gap-y-[24px] sm:gap-y-[48px] items-center">
+    <h3 class="text-[#1F326A] text-[24px] font-[Rhino85] sm:text-[40px] text-center">Caffeine Comparison</h3>
+    <div class="flex flex-col gap-y-[24px] items-center">
+      <fieldset class="flex flex-row flex-wrap justify-center gap-[12px] text-[#1F326A]">
+        <input id="soda" type="radio" name="drink" value="1 Gummy = 1 Can of Soda (50mg)" class="hidden peer/soda">
+        <label
+          for="soda"
+          class="border-[4px] border-[#1F326A] rounded-full h-[36px] font-[Rhino85] px-[16px] uppercase peer-checked/soda:bg-[#1F326A] peer-checked/soda:text-white"
+        >
+          Soda Can
+        </label>
+        <input
+          id="coffee"
+          type="radio"
+          name="drink"
+          value="2 Gummies = 1 Cup of Coffee (100mg)"
+          class="hidden peer/coffee"
+          checked
+        >
+        <label
+          for="coffee"
+          class="border-[4px] border-[#1F326A] rounded-full h-[36px] font-[Rhino85] px-[16px] uppercase peer-checked/coffee:bg-[#1F326A] peer-checked/coffee:text-white"
+        >
+          Coffee
+        </label>
+        <input
+          id="energy"
+          type="radio"
+          name="drink"
+          value="3 Gummies = 1 Energy Drink (150mg)"
+          class="hidden peer/energy"
+        >
+        <label
+          for="energy"
+          class="border-[4px] border-[#1F326A] rounded-full h-[36px] font-[Rhino85] px-[16px] uppercase peer-checked/energy:bg-[#1F326A] peer-checked/energy:text-white"
+        >
+          Energy Drink
+        </label>
+      </fieldset>
+      <div class="text-[#1F326A] text-[16px] sm:text-[20px] font-[Rhino85] uppercase comp-eq-output text-center">
+        1 caffeine gummy = 1 soda can
+      </div>
+    </div>
+  </div>
+  <div class="comp-output relative scale-50 -translate-y-[25%] mb-[-325px]">
+    <div class="[&_img]:absolute [&_img]:left-[50%] [&_img]:-translate-x-[50%] [&_img]:transition-all [&_img]:duration-1000">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0568/2275/9502/files/ff_gummy_blue_tiny.png?v=1704666914"
+        width="120"
+        height="160"
+        loading="lazy"
+        class="ln1 z-40"
+      >
+      <img
+        src="https://cdn.shopify.com/s/files/1/0568/2275/9502/files/ff_gummy_blue_tiny.png?v=1704666914"
+        width="120"
+        height="160"
+        loading="lazy"
+        class="ln2 z-30"
+      >
+      <img
+        src="https://cdn.shopify.com/s/files/1/0568/2275/9502/files/ff_gummy_blue_tiny.png?v=1704666914"
+        width="120"
+        height="160"
+        loading="lazy"
+        class="ln3 z-20"
+      >
+    </div>
+    {% comment %} soda can {% endcomment %}
+    {% comment %}
+      <svg width="344" height="614" viewBox="0 0 344 614" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M59.0313 36.453C60.886 33.671 64.0083 32 67.3518 32H276.648C279.992 32 283.114 33.671 284.969 36.453L310.321 74.4808C311.416 76.1234 312 78.0535 312 80.0278V533.972C312 535.946 311.416 537.877 310.321 539.519L284.969 577.547C283.114 580.329 279.992 582 276.648 582H67.3518C64.0083 582 60.886 580.329 59.0313 577.547L33.6795 539.519C32.5844 537.877 32 535.946 32 533.972V80.0278C32 78.0535 32.5844 76.1234 33.6795 74.4808L59.0313 36.453Z" fill="#F5F5F7"/>
+        <path d="M276.648 16H67.3518C58.6587 16 50.5406 20.3446 45.7185 27.5778L20.3667 65.6056C17.5194 69.8765 16 74.8948 16 80.0278V533.972C16 539.105 17.5194 544.123 20.3667 548.394L45.7185 586.422C50.5406 593.655 58.6586 598 67.3518 598H276.648C285.341 598 293.459 593.655 298.281 586.422L323.633 548.394C326.481 544.123 328 539.105 328 533.972V80.0278C328 74.8947 326.481 69.8765 323.633 65.6056L298.281 27.5778C293.459 20.3446 285.341 16 276.648 16Z" stroke="#1F326A" stroke-opacity="0.1" stroke-width="32"/>
+      </svg>
+    {% endcomment %}
+    {% comment %} coffee cup {% endcomment %}
+    {% comment %}
+      <svg width="404" height="514" viewBox="0 0 404 514" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M54.4359 38.1538C55.9886 34.4274 59.6297 32 63.6667 32H340.333C344.37 32 348.011 34.4274 349.564 38.1538L370.868 89.2836C371.607 91.057 371.82 93.0056 371.48 94.8964L303.478 473.767C302.622 478.532 298.476 482 293.635 482H110.365C105.524 482 101.378 478.532 100.522 473.767L32.5199 94.8964C32.1805 93.0056 32.3929 91.057 33.1318 89.2836L54.4359 38.1538Z" fill="#F5F5F7"/>
+        <path d="M340.333 16H63.6667C53.1704 16 43.7037 22.3112 39.6667 32L18.3626 83.1298C16.4415 87.7404 15.8891 92.8068 16.7715 97.7231L84.7739 476.593C86.9977 488.983 97.7774 498 110.365 498H293.635C306.223 498 317.002 488.983 319.226 476.593L387.228 97.7231C388.111 92.8068 387.559 87.7404 385.637 83.1298L364.333 32C360.296 22.3112 350.83 16 340.333 16Z" stroke="#1F326A" stroke-opacity="0.1" stroke-width="32"/>
+      </svg>
+    {% endcomment %}
+    {% comment %} energy drink {% endcomment %}
+    <svg id="drink-svgs" width="340" height="650" viewBox="0 0 340 650" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path id="soda-svg" opacity="0" d="M57.0313 4.453C58.886 1.67101 62.0083 0 65.3518 0H274.648C277.992 0 281.114 1.67101 282.969 4.453L308.321 42.4808C309.416 44.1234 310 46.0535 310 48.0278V501.972C310 503.946 309.416 505.877 308.321 507.519L282.969 545.547C281.114 548.329 277.992 550 274.648 550H65.3518C62.0083 550 58.886 548.329 57.0313 545.547L31.6795 507.519C30.5844 505.877 30 503.946 30 501.972V48.0278C30 46.0535 30.5844 44.1234 31.6795 42.4808L57.0313 4.453Z" fill="#F5F5F7"/>
+      <path id="coffee-svg" d="M22.4359 6.15385C23.9886 2.42738 27.6297 0 31.6667 0H308.333C312.37 0 316.011 2.42738 317.564 6.15385L338.923 57.4142C339.627 59.1055 339.854 60.9579 339.577 62.7692L282.572 436.253C282.203 438.667 280.964 440.863 279.088 442.426L272.781 447.682C270.984 449.18 268.719 450 266.38 450H73.6205C71.2811 450 69.0158 449.18 67.2187 447.682L60.9118 442.426C59.0357 440.863 57.7966 438.667 57.4281 436.253L0.422668 62.7692C0.146211 60.9579 0.372701 59.1055 1.07741 57.4142L22.4359 6.15385Z" fill="#F5F5F7"/>
+      <path id="energy-svg" opacity="0" d="M72.072 2.92893C73.9474 1.05357 76.4909 0 79.1431 0H260.859C263.511 0 266.055 1.05357 267.93 2.92893L277.072 12.0711C278.947 13.9464 280.001 16.49 280.001 19.1421V630.858C280.001 633.51 278.947 636.054 277.072 637.929L267.93 647.071C266.055 648.946 263.511 650 260.859 650H79.1431C76.4909 650 73.9474 648.946 72.072 647.071L62.9299 637.929C61.0545 636.054 60.0009 633.51 60.0009 630.858V19.1422C60.0009 16.49 61.0545 13.9464 62.9299 12.0711L72.072 2.92893Z" fill="#F5F5F7"/>
+    </svg>
+  </div>
+</div>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"
+  async
+></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var svg = document.getElementById('drink-svgs');
+    var s = Snap(svg);
+    var sodaCup = Snap.select('#soda-svg');
+    var coffeeCup = Snap.select('#coffee-svg');
+    var energyCup = Snap.select('#energy-svg');
+    var sodaCupPoints = sodaCup.node.getAttribute('d');
+    var coffeeCupPoints = coffeeCup.node.getAttribute('d');
+    var energyCupPoints = energyCup.node.getAttribute('d');
+
+    toSoda = function () {
+      coffeeCup.animate({ d: sodaCupPoints }, 1000, mina.easeinout);
+    };
+
+    toCoffee = function () {
+      coffeeCup.animate({ d: coffeeCupPoints }, 1000, mina.easeinout);
+    };
+
+    toEnergy = function () {
+      coffeeCup.animate({ d: energyCupPoints }, 1000, mina.easeinout);
+    };
+
+    function adjustMarginTop(id) {
+      var dropShadowValue = 'drop-shadow(0px 4px 32px rgba(0, 0, 0, 0.15))';
+
+      var ln1 = document.querySelector('.ln1');
+      var ln2 = document.querySelector('.ln2');
+      var ln3 = document.querySelector('.ln3');
+
+      ln1.style.filter = '';
+      ln2.style.filter = '';
+      ln3.style.filter = '';
+
+      switch (id) {
+        case 'soda':
+          ln1.style.marginTop = '195px';
+          ln2.style.marginTop = '195px';
+          ln3.style.marginTop = '195px';
+          ln1.style.filter = dropShadowValue;
+          break;
+        case 'coffee':
+          ln1.style.marginTop = '50px';
+          ln2.style.marginTop = '240px';
+          ln3.style.marginTop = '240px';
+          ln1.style.filter = dropShadowValue;
+          ln2.style.filter = dropShadowValue;
+          break;
+        case 'energy':
+          ln1.style.marginTop = '55px';
+          ln2.style.marginTop = '245px';
+          ln3.style.marginTop = '435px';
+          ln1.style.filter = dropShadowValue;
+          ln2.style.filter = dropShadowValue;
+          ln3.style.filter = dropShadowValue;
+          break;
+      }
+    }
+
+    document.querySelectorAll('input[name="drink"]').forEach((input) => {
+      input.addEventListener('change', function () {
+        document.querySelector('.comp-eq-output').textContent = this.value;
+
+        switch (this.id) {
+          case 'soda':
+            toSoda();
+            console.log('soda');
+            break;
+          case 'coffee':
+            toCoffee();
+            console.log('coffee');
+            break;
+          case 'energy':
+            toEnergy();
+            console.log('energy');
+            break;
+        }
+
+        adjustMarginTop(this.id);
+      });
+
+      if (input.checked) {
+        input.dispatchEvent(new Event('change'));
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Caffeine Comparison",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "presets": [
+    {
+      "name": "Caffeine Comparison"
+    }
+  ]
+}
+{% endschema %}

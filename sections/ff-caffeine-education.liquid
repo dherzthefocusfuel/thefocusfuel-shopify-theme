@@ -1,0 +1,237 @@
+<script src="{{ 'splide.min.js' | asset_url }}" async></script>
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+
+<style>
+  /* Hide mobile showcase by default */
+  .ff-caffeine-edu-mobile {
+    display: none;
+  }
+
+  /* Show desktop showcase by default */
+  .ff-caffeine-edu-desktop {
+    display: flex;
+  }
+
+  .ff-caffeine-edu-section-head {
+    text-align: left;
+  }
+
+  /* When viewport is 990px or less, switch the displays */
+  @media (max-width: 990px) {
+    .ff-caffeine-edu-mobile {
+      display: block;
+    }
+    .ff-caffeine-edu-desktop {
+      display: none;
+    }
+  }
+
+  @media (min-width: 600px) and (max-width: 990px) {
+    .ff-caffeine-edu-section-head {
+      text-align: center;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+      align-items: center;
+    }
+  }
+</style>
+
+<div class="ff-caffeine-edu-desktop bg-white text-[#1F326A] py-[96px]">
+  <div class="flex flex-row relative max-w-[1100px] w-full m-auto px-[16px] gap-[64px] box-border">
+    <div class="flex flex-col gap-y-[64px] w-3/5">
+      {% for block in section.blocks -%}
+        {% render 'ff-caffeine-education-card',
+          img: block.settings.img,
+          title: block.settings.title,
+          desc: block.settings.desc
+        %}
+      {% endfor %}
+    </div>
+    <div class="flex flex-col w-2/5">
+      <div class="inline-flex flex-col sticky top-[128px] justify-start space-y-[16px]">
+        <h3 class="text-[#1F326A] font-[Rhino85] text-[40px] leading-tight">
+          {{ section.settings.caffeine_edu_title }}
+        </h3>
+        <div class="text-[#1F326A] leading-snug">
+          {{ section.settings.caffeine_edu_desc }}
+        </div>
+        <a
+          href="{{ section.settings.caffeine_edu_link }}"
+          class="flex flex-row items-center h-[48px] text-[20px] bg-none text-white uppercase border-none p-0 cursor-pointer outline-none group-hover/product-card:scale-110 transition-all duration-500 relative z-10"
+        >
+          <div class="h-full text-[#1F326A]">
+            <svg width="21" height="48" viewBox="0 0 21 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 -7.86805e-07L2.09815e-06 24L12 24L0 48L21 48L21 0L12 -7.86805e-07Z" fill="currentColor"/>
+            </svg>
+          </div>
+
+          <div
+            class="flex flex-row items-center justify-center border-y-[3px] h-[48px] px-[10px] mx-[-2px] bg-[#1F326A] border-[#1F326A] font-[Rhino85]"
+          >
+            shop now
+          </div>
+
+          <div class="h-full text-[#1F326A]">
+            <svg width="21" height="48" viewBox="0 0 21 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 48L21 24H9L21 0H0V48H9Z" fill="currentColor"/>
+            </svg>
+          </div>
+        </a>
+      </div>
+      <div></div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="ff-product-showcase-mobile bg-white text-[#1F326A] py-[96px] flex flex-col"
+>
+  <div class="ff-caffeine-edu-section-head flex flex-col justify-start space-y-[16px] px-[32px] mb-[64px]">
+    <h3 class="text-[#1F326A] font-[Rhino85] text-[40px] leading-tight">{{ section.settings.caffeine_edu_title }}</h3>
+    <div class="text-[#1F326A] leading-snug">
+      {{ section.settings.caffeine_edu_desc }}
+    </div>
+    <a
+      href="https://quickstart-19157288.myshopify.com/products/focusfuel"
+      class="flex flex-row items-center h-[48px] text-[20px] bg-none text-white uppercase border-none p-0 cursor-pointer outline-none group-hover/product-card:scale-110 transition-all duration-500 relative z-10"
+    >
+      <div class="h-full text-[#1F326A]">
+        <svg width="21" height="48" viewBox="0 0 21 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 -7.86805e-07L2.09815e-06 24L12 24L0 48L21 48L21 0L12 -7.86805e-07Z" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <div
+        class="flex flex-row items-center justify-center border-y-[3px] h-[48px] px-[10px] mx-[-2px] bg-[#1F326A] border-[#1F326A] font-[Rhino85]"
+      >
+        shop now
+      </div>
+
+      <div class="h-full text-[#1F326A]">
+        <svg width="21" height="48" viewBox="0 0 21 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 48L21 24H9L21 0H0V48H9Z" fill="currentColor"/>
+        </svg>
+      </div>
+    </a>
+  </div>
+  <div
+    id="caffeine-edu"
+    class="splide"
+    data-splide='{"type":"loop","perPage":1, "pagination":false}'
+  >
+    <div class="splide__track">
+      <div class="splide__list">
+        {% for block in section.blocks -%}
+          {% render 'ff-caffeine-education-card',
+            img: block.settings.img,
+            title: block.settings.title,
+            desc: block.settings.desc,
+            is_slide: true
+          %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Splide('#caffeine-edu').mount();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Education Section",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "caffeine_edu_title",
+      "label": "Caffeine education title",
+      "default": "The best caffeine you can get"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "caffeine_edu_desc",
+      "label": "Caffeine education description",
+      "default": "This is a more detailed description about why the caffeine is better for you and such"
+    },
+    {
+      "type": "text",
+      "id": "caffeine_edu_link",
+      "label": "Caffeine education link",
+      "default": "/products/focusfuel"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "edu_card",
+      "name": "Education Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "default": "Title goes here",
+          "label": "Title"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "desc",
+          "default": "Description goes here",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Showcase Cam",
+      "blocks": [
+        {
+          "type": "edu_card",
+          "settings": {
+            "img": "shopify://shop_images/electric_watermelon.png",
+            "title": "This is the first point about caffeine",
+            "desc": "This is a more detailed description about why the caffeine is better for you and such"
+          }
+        },
+        {
+          "type": "edu_card",
+          "settings": {
+            "img": "shopify://shop_images/electric_watermelon.png",
+            "title": "This is the second point about caffeine",
+            "desc": "This is a more detailed description about why the caffeine is better for you and such"
+          }
+        },
+        {
+          "type": "edu_card",
+          "settings": {
+            "img": "shopify://shop_images/electric_watermelon.png",
+            "title": "This is the third point about caffeine",
+            "desc": "This is a more detailed description about why the caffeine is better for you and such"
+          }
+        },
+        {
+          "type": "edu_card",
+          "settings": {
+            "img": "shopify://shop_images/electric_watermelon.png",
+            "title": "This is the fourth point about caffeine",
+            "desc": "This is a more detailed description about why the caffeine is better for you and such"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
