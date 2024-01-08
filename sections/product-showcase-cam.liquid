@@ -1,6 +1,3 @@
-<script src="{{ 'splide.min.js' | asset_url }}" async></script>
-{{ 'splide.min.css' | asset_url | stylesheet_tag }}
-
 <style>
   /* Hide mobile showcase by default */
   .ff-product-showcase-mobile {
@@ -26,7 +23,7 @@
 <div class="ff-product-showcase-desktop flex-row w-full">
   {% render 'ff-product-card',
     name: 'Electric Blue Razzberry Lemonade',
-    image: 'FocusFuel_3.17OZ_ElectricBlueRazzberryLemonade_RGB',
+    image: 'ff_30_bluerazzberry.webp',
     link: '/products/focusfuel?variant=47603205308715',
     background_color: '#00C2F3',
     button_color: '#1F326A',
@@ -34,7 +31,7 @@
   %}
   {% render 'ff-product-card',
     name: 'Electric Watermelon',
-    image: 'FocusFuel_3.17OZ_Watermelon_RGB',
+    image: 'ff_30_watermelon.webp',
     link: '/products/focusfuel?variant=47603205341483',
     background_color: '#EF4871',
     button_color: '#004737',
@@ -42,7 +39,7 @@
   %}
   {% render 'ff-product-card',
     name: 'Electric Fruit Punch',
-    image: 'FocusFuel_3.17OZ_FruitPunch_RGB',
+    image: 'ff_30_fruitpunch.webp',
     link: '/products/focusfuel?variant=47603205374251',
     background_color: '#F7941D',
     button_color: '#A51C17',
@@ -91,15 +88,9 @@
   </div>
   <div class="splide__track">
     <div class="splide__list">
-      {% comment %}
-        <div class="splide__slide">1</div>
-        <div class="splide__slide">2</div>
-        <div class="splide__slide">3</div>
-        <div class="splide__slide">4</div>
-      {% endcomment %}
       {% render 'ff-product-card',
         name: 'Electric Blue Razzberry Lemonade',
-        image: 'FocusFuel_3.17OZ_ElectricBlueRazzberryLemonade_RGB',
+        image: 'ff_30_bluerazzberry.webp',
         link: '/products/focus-fuel?variant=40315289796686',
         background_color: '#00C2F3',
         button_color: '#1F326A',
@@ -108,7 +99,7 @@
       %}
       {% render 'ff-product-card',
         name: 'Electric Watermelon',
-        image: 'FocusFuel_3.17OZ_Watermelon_RGB',
+        image: 'ff_30_watermelon.webp',
         link: '/products/focus-fuel?variant=40315289829454',
         background_color: '#EF4871',
         button_color: '#004737',
@@ -117,7 +108,7 @@
       %}
       {% render 'ff-product-card',
         name: 'Electric Fruit Punch',
-        image: 'FocusFuel_3.17OZ_FruitPunch_RGB',
+        image: 'ff_30_fruitpunch.webp',
         link: '/products/focus-fuel?variant=40391283376206',
         background_color: '#F7941D',
         button_color: '#A51C17',
